@@ -2,19 +2,31 @@
 }
 
 .input {
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
 }
 
 .inputWrapper {
+    display: flex;
 }
 
 .superInput {
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
 }
 
 .errorInput {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #CC1439;
 }
 
 .errorInput:focus {
 }
 
 .error {
+    color: red;
 }

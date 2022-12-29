@@ -12,6 +12,7 @@ const Stand = () => {
 
     return (
         <div id={'hw4-stand'} className={s.stand}>
+
             <div className={s.inputs}>
                 {/*совместим со старым кодом:*/}
                 <div>
@@ -29,11 +30,7 @@ const Stand = () => {
                         onChangeText={setValue}
                         error={error}
                         onEnter={() => {
-                            setError(
-                                stateForAllInputs.trim()
-                                    ? ''
-                                    : 'Error'
-                            )
+                            setError(stateForAllInputs.trim() ? '' : 'Error')
                             setValue('')
                         }}
                     />
@@ -90,7 +87,9 @@ const Stand = () => {
                     <SuperCheckbox
                         id={'hw4-super-checkbox-like-old'}
                         checked={stateForAllCheckboxes}
-                        onChange={(e) => setChecked(e.currentTarget.checked)}
+                        onChange={(e) =>{
+                            setChecked(e.currentTarget.checked)
+                        }}
                     />
                 </div>
             </div>

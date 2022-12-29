@@ -1,14 +1,13 @@
-import React, {ChangeEvent, KeyboardEvent} from 'react'
+import React, {ChangeEvent, KeyboardEvent, KeyboardEventHandler} from 'react'
 import s from './Greeting.module.css'
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
+import {UserType} from "./HW3";
 
 type GreetingPropsType = {
     name: string // need to fix any
-    setNameCallback: any // need to fix any
-    addUser: any // need to fix any
-    onBlur: any // need to fix any
-    onEnter: any // need to fix any
+    setNameCallback: (e:ChangeEvent<HTMLInputElement>)=>void // need to fix any
+    addUser: ()=>void // need to fix any
+    onBlur: ()=>void // need to fix any
+    onEnter: KeyboardEventHandler<HTMLInputElement> // need to fix any
     error: string // need to fix any
     totalUsers: number // need to fix any
     lastUserName?: string // need to fix any
@@ -27,8 +26,7 @@ const Greeting: React.FC<GreetingPropsType> = (
         lastUserName,
     } // деструктуризация пропсов
 ) => {
-    const inputClass = error ? s.errorInput : s.input
-    // need to fix with (?:)
+    const inputClass = error ? s.errorInput : s.input  // need to fix with (?:)
 
     return (
         <div id={'hw3-form'} className={s.greetingForm}>
@@ -49,11 +47,7 @@ const Greeting: React.FC<GreetingPropsType> = (
                         onKeyDown={onEnter}
                         onBlur={onBlur}
                     />
-                    <div id={'hw3-error'} className={s.error}>
-                        {error}
-                    </div>
                 </div>
-
                 <button
                     id={'hw3-button'}
                     onClick={addUser}
@@ -63,7 +57,9 @@ const Greeting: React.FC<GreetingPropsType> = (
                     add
                 </button>
             </div>
-
+            <div id={'hw3-error'} className={s.error}>
+                {error}
+            </div>
             {lastUserName && (
                 <div className={s.greeting}>
                     Привет <span id={'hw3-last-user'}>{lastUserName}</span>!

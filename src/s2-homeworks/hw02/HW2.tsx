@@ -16,42 +16,39 @@ import s2 from '../../s1-main/App.module.css'
 * 11 - в файле Affair.tsx отобразить приходящие данные
 * */
 
-
-export type AffairPriorityType = 'low' | 'middle' | 'high'
+// types
+export type AffairPriorityType = 'high' | 'low' | 'middle' // need to fix any
 export type AffairType = {
-    _id: number
-    name: string
+    _id: number // need to fix any
+    name: string // need to fix any
     priority: AffairPriorityType
 }
 export type FilterType = 'all' | AffairPriorityType
 
-
-const defaultAffairs: AffairType[] = [
+// constants
+const defaultAffairs: AffairType[] = [ // need to fix any
     {_id: 1, name: 'React', priority: 'high'}, // студенты могут изменить содержимое name и количество элементов в массиве, ...priority не менять!
     {_id: 2, name: 'anime', priority: 'low'},
     {_id: 3, name: 'games', priority: 'low'},
     {_id: 4, name: 'work', priority: 'high'},
     {_id: 5, name: 'html & css', priority: 'middle'},
-    {_id: 6, name: 'angular', priority: 'high'}
 ]
 
-
-export const filterAffairs = (affairs: AffairType[], filter: FilterType): AffairType[] => {
-     return filter === 'all' ? affairs : affairs.filter(el => el.priority == filter)
+// pure helper functions
+export const filterAffairs = (affairs: AffairType[], filter: FilterType): AffairType[] => { // need to fix any
+ return filter == 'all' ? affairs : affairs.filter(el => el.priority == filter )
 }
-
-export const deleteAffair = (affairs: AffairType[], _id: number): AffairType[] => {
-let deleted = affairs.filter(el => el._id !== _id)
-    return deleted
+export const deleteAffair = (affairs: AffairType[], _id: number): AffairType[] => { // need to fix any
+    return affairs.filter(el => el._id !== _id)
 }
 
 function HW2() {
-    const [affairs, setAffairs] = useState<AffairType[]>(defaultAffairs)
+    const [affairs, setAffairs] = useState<AffairType[]>(defaultAffairs) // need to fix any
     const [filter, setFilter] = useState<FilterType>('all')
 
     const filteredAffairs = filterAffairs(affairs, filter)
-    const deleteAffairCallback = (_id: number) => {
-        setAffairs(deleteAffair(affairs, _id))
+    const deleteAffairCallback = (_id: number) => { // need to fix any
+       setAffairs(deleteAffair(affairs,_id))
     }
 
     return (
