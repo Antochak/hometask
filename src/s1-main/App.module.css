@@ -6,6 +6,8 @@ html, body {
  --header_hight: 60px;
     width: 80%;
     margin: 0 auto;
+    position: relative;
+overflow: hidden;
 
 }
 
